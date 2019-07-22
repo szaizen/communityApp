@@ -1,3 +1,84 @@
-// Place all the styles related to the sessions controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+/* reset */
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+$accent-color: #FA776D;
+$main-color: #FC9D9A;
+$base-color: #F9CDAD;
+$dark-color: #757575;
+
+@mixin flex{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+/* form */
+@mixin form_input{
+  width: 300px;
+  padding: 10px;
+  font-size: 15px;
+}
+
+
+/* common */
+
+body {
+  line-height: 1.5; 
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+
+/* header */
+.gnav {
+	background-color: $accent-color;
+
+	.gnav__inner {
+		@include flex;
+		height: 70px;
+		
+	}
+	
+}
+
+/* 新規登録ページ */
+#signup {
+  padding: 70px 0;
+  background-image: image-url('work_chat.png');
+	background-size: 60%;
+  background-repeat: no-repeat;
+  background-position: right;
+}
+.new_user {
+	margin: 20px 0;
+	input {
+		@include form_input;
+	}
+	label {
+    display: block;
+    margin: 15px 0px 3px;
+  }
+  input[type="submit"] {
+    background-color: $accent-color;
+    border: none;
+    width: 324px;
+    margin: 20px 0;
+    color: #fff;
+	}
+}
+
+.description {
+  margin: 0 0 80px;
+  line-height: 1.7;
+		p {
+		  margin: 28px 0;
+		}
+}

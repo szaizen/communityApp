@@ -3,6 +3,7 @@ class UsersController < ApplicationController
   before_action :auth_user
 
   def index
+  	@user = users.all
   end
 
   private 

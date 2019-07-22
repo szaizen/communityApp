@@ -1,29 +1,49 @@
-<h2>Sign up</h2>
+<div class="container">
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+  <section id="signup">
+    <h1>「コミュっと」で<br>もっとコミュニティを活性化しませんか？</h1>
+    
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+    <div class="field">
+      <%= f.label :email %>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    </div>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
+    <div class="field">
+      <%= f.label :password %>
+      <%= f.password_field :password, autocomplete: "new-password" %>
+    </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
+    <div class="field">
+      <%= f.label :password_confirmation %>
+      <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    </div>
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
+    <div class="actions">
+      <%= f.submit "無料で使う" %>
+    </div>
+    <% end %>
 
-<%= render "devise/shared/links" %>
+    <div>
+      すでに登録済みの方は
+    <%= render "devise/shared/links" %>
+    </div>
+
+  </section>
+
+<section class="description">
+  <div>
+  <p>コミュニケーションツール「コミュっと」。</p>
+
+  <p>インターネット・SNSの普及により、同じ興味や関心の人で集まり、交流することも増えてきました。<br>
+  こうした交流の場やユーザーの集まりは、近年「コミュニティ」と呼ばれ、どのようなコミュニティに属しているか・その中でどう言ったコミュニティを築くか というのが重要視されています。</p>
+
+  <p>また、参加しているコミュニティが多くなると、誰がコミュニティにいるのか？あの人はどんな人なのか？など把握が難しくなってきています。</p>
+
+  <p>そこで、このコミュっとを使うことで、<br>
+  全員のプロフィールがうもれないようにしてより良いコミュニケーションが図れるようにしました！</p>
+  </div>  
+</section>
+</div>
