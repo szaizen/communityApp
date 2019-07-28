@@ -1,0 +1,29 @@
+
+<div class="container">
+<h2>プロフィール編集</h1>
+
+
+<%= form_for @profile, url: profile_path do |f| %>
+	
+	<div>
+	  <%= f.label :name %>
+	  <%= f.text_field :name %>
+  </div>
+  <div>
+  	<%= f.label :prof_image %>
+	  <%= f.text_field :prof_image %>
+	</div>
+  <div>
+	  <%= f.label :age %>
+	  <%= f.text_field :age %>
+	</div>
+	<div>
+	  <%= f.label :country %>
+	  <%= f.text_field :country %>
+	</div>
+	<div>
+  	<%= f.submit "編集" %>
+  </div>
+<% end %>
+
+</div>

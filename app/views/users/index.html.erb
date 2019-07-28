@@ -1,3 +1,16 @@
-<h1>test</h1>
+<div class="container">
 
-<%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
+	<h1>プロフィール一覧</h1>
+
+	<% @prof.each do |profile| %>
+	  <div>
+	    <%= profile.user.email %>
+	  </div>
+	<% end %>
+	<%= link_to "edit", profile_path %>
+
+
+	<p>this is my name</p>
+	<p><%= current_user.profile.name %></p>
+
+</div>

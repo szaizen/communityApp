@@ -7,17 +7,29 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
   </head>
 
   <body>
     <header class="gnav">
       <div class="container gnav__inner">
-        <div class="gnav__left">コミュっと！</div>
-        <div class="gnav__right">ログイン</div>
+        <div class="gnav__left"><a href="/">コミュっと！</a></div>
+          <div class="gnav__right">
+        <% if user_signed_in? %>
+          <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+        <% else %>
+          <%= link_to "ログイン", new_user_session_path %>
+          
+        <% end %>
+          </div>
+
       </div>
     </header>
     <%= yield %>
-    <p class="notice"><%= notice %></p>
+    <p class="notice">
+      <%= notice %>
+    </p>
+
     <p class="alert"><%= alert %></p>
   </body>
 </html>
