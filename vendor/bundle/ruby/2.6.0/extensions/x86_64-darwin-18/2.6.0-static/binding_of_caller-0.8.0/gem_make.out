@@ -1,0 +1,16 @@
+current directory: /Users/saki/wk/rails/communityApp/vendor/bundle/ruby/2.6.0/gems/binding_of_caller-0.8.0/ext/binding_of_caller
+/Users/saki/.rbenv/versions/2.6.1/bin/ruby -I /Users/saki/.rbenv/versions/2.6.1/lib/ruby/2.6.0 -r ./siteconf20190728-55459-1uhwo3h.rb extconf.rb
+
+current directory: /Users/saki/wk/rails/communityApp/vendor/bundle/ruby/2.6.0/gems/binding_of_caller-0.8.0/ext/binding_of_caller
+make "DESTDIR=" clean
+make: *** No rule to make target `clean'.  Stop.
+
+current directory: /Users/saki/wk/rails/communityApp/vendor/bundle/ruby/2.6.0/gems/binding_of_caller-0.8.0/ext/binding_of_caller
+make "DESTDIR="
+echo "Nada."
+Nada.
+
+current directory: /Users/saki/wk/rails/communityApp/vendor/bundle/ruby/2.6.0/gems/binding_of_caller-0.8.0/ext/binding_of_caller
+make "DESTDIR=" install
+echo "Nada."
+Nada.
