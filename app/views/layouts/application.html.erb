@@ -4,13 +4,13 @@
     <title>コミュっと！</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
   </head>
 
   <body>
+
     <header class="gnav">
       <div class="container gnav__inner">
         <div class="gnav__left"><a href="/">コミュっと！</a></div>
@@ -18,7 +18,11 @@
         <% if user_signed_in? %>
           <div class="dropdown">
           <button class="btn dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <%= image_tag(current_user.profile.prof_image_url) if current_user.profile.prof_image.present? %>
+            <% if current_user.profile.prof_image_url.nil? %>
+              <%= image_tag('noicon.jpg') %>
+            <% else %>
+              <%= image_tag(current_user.profile.prof_image_url) if current_user.profile.prof_image.present? %>
+            <% end %>
           </button>
           <div class="dropdown-menu" aria-labelledby="dropdownMenu2"> 
             <%= link_to "プロフィール編集", profile_path, { :class => "dropdown-item" } %>
@@ -28,7 +32,7 @@
           
 
         <% else %>
-          <%= link_to "ログイン", new_user_session_path %>
+          <%= link_to "ログイン", new_user_session_path, { :class => "login" } %>
         <% end %>
           </div>
 

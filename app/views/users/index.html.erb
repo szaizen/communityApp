@@ -4,23 +4,20 @@
 	<div class="card-list">
 	<% @prof.each do |profile| %>
 	  
-	  <div class="card" style="width: 18rem;">
-		  
-		  <%= image_tag(profile.prof_image_url, :class => "card-img-top") if profile.prof_image.present? %>
-		  <div class="card-body">
-		    <h5 class="card-title"><%= profile.name %></h5>
-		    <p class="card-text">
-		    	<div class="country"><%= profile.country %></div>
-		    	<div>
-		    		<%= profile.jobs %>
-		    	</div>
-		    	<div>
-		    		<%= profile.biography %>
-		    	</div>
-		    </p>
-		    <%= link_to "詳細", show_profile_path(profile.id) %>
-		  </div>
-		</div>
+	  <%= link_to show_profile_path(profile.id) do %>
+		  <div class="card" style="width: 18rem;">
+			  <%= image_tag(profile.prof_image_url, :class => "card-img-top") if profile.prof_image.present? %>
+			  <div class="card-body">
+			    <h5 class="card-title"><%= profile.name %></h5>
+			    <p class="card-text">
+			    	<div class="country"><%= profile.country %></div>
+			    	<div class="job"><%= profile.jobs %></div>
+			    	<div class="biography"><%= profile.biography %>
+			    	</div>
+			    </p>
+			  </div>
+			</div>
+		<% end %>
 
 	<% end %>
 	</div>

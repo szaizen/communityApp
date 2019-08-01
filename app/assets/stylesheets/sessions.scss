@@ -1,6 +1,5 @@
 
 @import "bootstrap";
-/*@import 'font-awesome';*/
 
 /* reset */
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
@@ -8,34 +7,53 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
   padding: 0;
   border: 0;
 }
+a {
+  color: black;
+  &:hover {
+    color: black;
+    text-decoration: none;
+  }
+}
 
 $accent-color: #FA776D;
 $main-color: #FC9D9A;
 $base-color: #F9CDAD;
 $dark-color: #757575;
 
-@mixin flex{
+@mixin flex {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 }
+@mixin font_awesome {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 600;
+  margin-right: 5px;
+}
 /* form */
-@mixin form_input{
+@mixin form_input {
   width: 300px;
   padding: 10px;
   font-size: 15px;
 }
 
-
 /* common */
 
 body {
   line-height: 1.5; 
+  background-color: #f6f9fa;
 }
 
 .container {
   max-width: 1000px;
   margin: 0 auto;
+}
+.notice {
+  position: absolute;
+  left: 40%;
+  width: 20%;
+  text-align: center;
+  padding: 20px 0;
 }
 
 
@@ -56,6 +74,9 @@ body {
     }
   }
   .gnav__right {
+    .login {
+      color: #fff;
+    }
     #dropdownMenu2 {
       background-color: #fa776d;
     }
@@ -127,8 +148,39 @@ body {
   margin: 70px 0;
   justify-content: space-around;
 
-  .card {
+  a {
     margin-bottom: 40px;
+    transition: .4s;
+    border-radius: 0.25rem;
+    background-color: #fff;
+
+    &:hover {
+      box-shadow: 0 18px 18px 0 rgba(10, 31, 68, 0.12), 0 0 1px 0 rgba(10, 31, 68, 0.1);
+    }
+
+    .card {
+
+      border: none;
+      border-radius: 0;
+      
+      .country {
+
+        font-size: 14px;
+
+        &::before {
+          @include font_awesome;
+          content: "\f3c5";
+        }
+
+      }
+
+      .job {
+        margin: 10px 0;
+        font-size: 13px;
+      }
+
+    }
+
   }
 
   .card-img-top {
@@ -179,38 +231,48 @@ body {
 
   }
 
-    h1 {
-      font-size: 20px;
-      margin-bottom: 25px;
+  .profile {
+    background-color: #fff;
+    padding: 47px 40px;
+  }
+
+  h1 {
+    font-size: 20px;
+    margin-bottom: 25px;
+  }
+
+  .prof_image {
+
+    img {
+      width: 100px;
     }
 
-    .prof_image {
+    label {
+      display: block;
+    } 
 
-      img {
-        width: 100px;
-      }
-
-      label {
-        display: block;
-      } 
-
+    #book_picture {
+      margin: 10px;
+      font-size: 14px;
     }
 
-    input[type="submit"] {
-      width: 200px;
-      padding: 6px 0;
-      background-color: #fa776d;
-      border: none;
-      color: #ffffff;
-      border-radius: 4px;
-      margin: 20px 0;
-      cursor: pointer;
+  }
 
-      &:hover {
-        opacity: 0.7;
-      }
+  input[type="submit"] {
+    width: 200px;
+    padding: 6px 0;
+    background-color: #fa776d;
+    border: none;
+    color: #ffffff;
+    border-radius: 4px;
+    margin: 20px 0;
+    cursor: pointer;
 
+    &:hover {
+      opacity: 0.7;
     }
+
+  }
 
 }
 
