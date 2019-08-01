@@ -1,72 +1,70 @@
 
 
+<div class="edit">
+	<div class="container profile__edit">
+		<div class="row">
+			<div class="setting col-md-3">
+				<%= link_to("プロフィール変更", profile_path, {class: "profile__edit-link"}) %>
+				<%= link_to("パスワード変更", edit_user_registration_path, {class: "password__edit-link"}) %>
+				<%= link_to "アカウント削除", user_path, {method: :delete, data: {confirm: "本当に削除してよろしいですか？"}} %>
+			</div>
+			<div class="profile col-md-9">
+			
+		<%= form_for @profile, url: profile_path do |f| %>
+		  	<h1>プロフィール編集</h1>
 
-<div class="container profile__edit">
-	<div class="row">
-		<div class="setting col-md-3">
-			<%= link_to "アカウント設定", edit_user_registration_path %>
-			<%= link_to "アカウント削除", user_path, {method: :delete, data: {confirm: "本当に削除してよろしいですか？"}} %>
-		</div>
-		<div class="profile col-md-9">
-		
-	<%= form_for @profile, url: profile_path do |f| %>
-	  	<h1>プロフィール編集</h1>
+				  <div class="form-row">
 
-			  <div class="form-row">
+				    <div class="form-group col-md-6">
+				    	<%= f.label :name, "名前" %>
+				      <%= f.text_field :name ,:class => 'form-control' %>
+				    </div>
 
-			    <div class="form-group col-md-6">
-			    	<%= f.label :name, "名前" %>
-			      <%= f.text_field :name ,:class => 'form-control' %>
-			    </div>
+				    <div class="form-group col-md-3">
+				    	<%= f.label :country, "出身地" %>
+						  <%= f.text_field :country, :class => 'form-control' %>
+				    </div>
 
-			    <div class="form-group col-md-3">
-			    	<%= f.label :country, "出身地" %>
-					  <%= f.text_field :country, :class => 'form-control' %>
-			    </div>
+				    <div class="form-group col-md-3">
+						  <%= f.label :age, "年齢" %>
+					  	<%= f.text_field :age ,:class => 'form-control' %>
+					  </div>
 
-			    <div class="form-group col-md-3">
-					  <%= f.label :age, "年齢" %>
-				  	<%= f.text_field :age ,:class => 'form-control' %>
 				  </div>
 
-			  </div>
+	 				<div class="form-row">
 
- 				<div class="form-row">
+				    <div class="form-group col-md-6">
+					  	<%= f.label :jobs, "職業" %>
+						  <%= f.text_field :jobs, :class => 'form-control' %>
+						</div>
 
-			    <div class="form-group col-md-6">
-				  	<%= f.label :jobs, "職業" %>
-					  <%= f.text_field :jobs, :class => 'form-control' %>
+					</div>
+					
+					<div class="form-row">
+
+				    <div class="form-group col-md-12">
+							<%= f.label :biography, "自己紹介" %>
+						  <%= f.text_area :biography, :class => 'form-control' %>
+						</div>
+
 					</div>
 
-				</div>
-				
-				<div class="form-row">
+				  
+					<div class="form-row prof_image">
+						<div class="form-group col-md-12">
+						<%= f.label :prof_image, "プロフィール画像"  %>
+						<%= image_tag(@profile.prof_image_url) if @profile.prof_image.present? %>
+				    
+				    <%= f.file_field :prof_image, id: :book_picture %>
+				    </div>
+					<div>
+				  	<%= f.submit "保存" %>
+				  </div>
+				<% end %>
 
-			    <div class="form-group col-md-12">
-						<%= f.label :biography, "自己紹介" %>
-					  <%= f.text_area :biography, :class => 'form-control' %>
-					</div>
-
-				</div>
-
-			  
-				<div class="form-row prof_image">
-					<div class="form-group col-md-12">
-					<%= f.label :prof_image, "プロフィール画像"  %>
-					<%= image_tag(@profile.prof_image_url) if @profile.prof_image.present? %>
-			    
-			    <%= f.file_field :prof_image, id: :book_picture %>
-			    </div>
-				<div>
-			  	<%= f.submit "保存" %>
-			  </div>
-			<% end %>
-
-
+			</div>
 		</div>
-
 	</div>
-
-	
 </div>
 

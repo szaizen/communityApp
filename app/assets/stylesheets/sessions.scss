@@ -145,11 +145,24 @@ body {
 }
 
 /* プロフィール編集ページ */
-.profile__edit {
+.edit {
+
+  .profile__edit {
+    .profile__edit-link {
+      color: black;
+    }
+  }
+
+  .password__edit {
+    .password__edit-link {
+      color: black;
+    }
+  }
 
   margin-top: 75px;
 
   .setting {
+
     a {
       display: block;
       margin: 15px 40px 19px 0;
@@ -166,7 +179,10 @@ body {
 
   }
 
-  .profile {
+    h1 {
+      font-size: 20px;
+      margin-bottom: 25px;
+    }
 
     .prof_image {
 
@@ -195,8 +211,6 @@ body {
       }
 
     }
-
-  }
 
 }
 
