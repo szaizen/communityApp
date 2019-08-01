@@ -145,34 +145,60 @@ body {
 }
 
 /* プロフィール編集ページ */
-.profile {
-  margin: 60px 0;
+.profile__edit {
 
-  .prof_image {
+  margin-top: 75px;
 
-    img {
-      width: 100px;
-    }
-
-    label {
+  .setting {
+    a {
       display: block;
-    } 
+      margin: 15px 40px 19px 0;
+      border-bottom: 1px solid $dark-color;
+      color: $dark-color;
+      padding-bottom: 2px;
+
+      &:hover {
+        text-decoration: none;
+        color: black;
+      }
+
+    }
 
   }
 
-  input[type="submit"] {
-    width: 200px;
-    padding: 6px 0;
-    background-color: #fa776d;
-    border: none;
-    color: #ffffff;
-    border-radius: 4px;
-    margin: 20px 0;
-    cursor: pointer;
+  .profile {
+
+    .prof_image {
+
+      img {
+        width: 100px;
+      }
+
+      label {
+        display: block;
+      } 
+
+    }
+
+    input[type="submit"] {
+      width: 200px;
+      padding: 6px 0;
+      background-color: #fa776d;
+      border: none;
+      color: #ffffff;
+      border-radius: 4px;
+      margin: 20px 0;
+      cursor: pointer;
+
+      &:hover {
+        opacity: 0.7;
+      }
+
+    }
+
   }
 
 }
-
 
 /* プロフィール詳細ページ */
 .prof__topimage {

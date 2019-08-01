@@ -1,8 +1,13 @@
 
 
 
-<div class="container">
-	<div class="profile">
+<div class="container profile__edit">
+	<div class="row">
+		<div class="setting col-md-3">
+			<%= link_to "アカウント設定", edit_user_registration_path %>
+			<%= link_to "アカウント削除", user_path, {method: :delete, data: {confirm: "本当に削除してよろしいですか？"}} %>
+		</div>
+		<div class="profile col-md-9">
 		
 	<%= form_for @profile, url: profile_path do |f| %>
 	  	<h1>プロフィール編集</h1>
@@ -58,10 +63,10 @@
 			<% end %>
 
 
-
+		</div>
 
 	</div>
 
-	<%= link_to "削除", user_path, method: :delete %>
+	
 </div>
 
