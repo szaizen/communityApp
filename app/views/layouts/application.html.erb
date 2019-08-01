@@ -16,19 +16,29 @@
         <div class="gnav__left"><a href="/">コミュっと！</a></div>
           <div class="gnav__right">
         <% if user_signed_in? %>
-          <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+          <div class="dropdown">
+          <button class="btn dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <%= image_tag(current_user.profile.prof_image_url) if current_user.profile.prof_image.present? %>
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenu2"> 
+            <%= link_to "プロフィール編集", profile_path, { :class => "dropdown-item" } %>
+            <%= link_to("ログアウト", destroy_user_session_path, { method: :delete, data: {confirm: "ログアウトしますか？"}, class: "dropdown-item"}) %>
+            <button class="dropdown-item" type="button">Something else here</button>
+          </div>
+        </div>
+          
+
         <% else %>
           <%= link_to "ログイン", new_user_session_path %>
-          
         <% end %>
           </div>
 
       </div>
     </header>
-    <%= yield %>
     <p class="notice">
       <%= notice %>
     </p>
+    <%= yield %>
 
     <p class="alert"><%= alert %></p>
   </body>

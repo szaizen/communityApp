@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
 
-  devise_for :user
-  root to: "users#index"
+  
+
+	# プロフィール詳細
+	get '/profile/:id', to: 'users#show',  as: 'show_profile'
 
   # 入力error時userに飛ぶので、リダイレクト
 	get '/user', to: redirect("/user/sign_up")
@@ -11,4 +13,12 @@ Rails.application.routes.draw do
 	post '/profile', to: 'users#update'
 	patch '/profile', to: 'users#update'
 
+	delete '/user', to: 'users#delete',  as: 'delete_user'
+
+	# devise_for :user
+	devise_for :user, controllers: { registrations: 'registrations' }
+
+ 	root to: "users#index"
+
+  
 end
