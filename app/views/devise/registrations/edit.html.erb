@@ -3,9 +3,7 @@
   <div class="container password__edit">
     <div class="row">
       <div class="setting col-md-3">
-        <%= link_to("プロフィール変更", profile_path, {class: "profile__edit-link"}) %>
-        <%= link_to("パスワード変更", edit_user_registration_path, {class: "password__edit-link"}) %>
-        <%= link_to "アカウント削除", user_path, {method: :delete, data: {confirm: "本当に削除してよろしいですか？"}} %>
+        <%= render 'shared/setting_side' %>
       </div>
       <div class="profile col-md-9">
         <h1>パスワード変更</h1>

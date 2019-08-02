@@ -1,0 +1,7 @@
+
+
+<%= link_to("基本プロフィール", profile_path, {class: "profile__edit-link"}) %>
+<%= link_to("ポートフォリオ", edit_portfolio_path, {class: "portfolio__edit-link"}) %>
+<%= link_to("パスワード変更", edit_user_registration_path, {class: "password__edit-link"}) %>
+<%= link_to "アカウント削除", user_path, {method: :delete, data: {confirm: "本当に削除してよろしいですか？"}} %>
+

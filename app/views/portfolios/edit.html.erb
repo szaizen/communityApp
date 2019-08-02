@@ -1,0 +1,70 @@
+
+
+<div class="edit">
+	<div class="container portfolio__edit">
+		<div class="row">
+			<div class="setting col-md-3">
+				<%= render 'shared/setting_side' %>
+			</div>
+			<div class="portfolio col-md-9">
+
+				<div class="portfolio__top">
+					<h1>ポートフォリオ・作品</h1>
+					<%= link_to("ポートフォリオ追加", new_portfolio_path, {method: :post, class: "portfolio__top-add"}) %>
+				</div>
+
+				<%= form_tag update_portfolio_path, method: :patch do %>
+				  <% @port.each do |portfolio| %>
+				    <%= fields_for "portfolios[]", portfolio do |f| %>
+
+				    <div class="portfolio__list">
+
+
+				    	<%= f.label :port_image, "画像"  %>
+				    	<%= image_tag(portfolio.port_image_url) if portfolio.port_image.present? %>
+				    	<%= f.file_field :port_image %>
+
+							<div class="form-row">
+						    <div class="form-group col-md-6">
+									<%= f.label :name, "名前" %>
+									<%= f.text_field :name ,:class => 'form-control' %>
+								</div>
+								<div class="form-group col-md-6">
+									<%= f.label :created_date, "作成月日" %>
+									<%= f.date_field :created_date ,:class => 'form-control' %>
+								</div>
+							</div>
+
+							<div class="form-row">
+						    <div class="form-group col-md-12">
+									<%= f.label :url, "URL" %>
+									<%= f.text_field :url ,:class => 'form-control' %>
+								</div>
+							</div>
+
+							<div class="form-row">
+						    <div class="form-group col-md-12">
+						    	<%= f.label :detail, "詳細" %>
+									<%= f.text_area :detail ,:class => 'form-control' %>
+								</div>
+							</div>
+
+							<%= link_to("この項目を削除", delete_portfolio_path(portfolio.id), {method: :delete, data: {confirm: "削除してよろしいですか？"},class: "portfolio__delete"}) %>
+
+						</div>
+
+							
+
+							
+									
+				    <% end %>
+				  <% end %>
+
+				  <%= submit_tag "保存" %>
+				<% end %>
+		
+			</div>
+		</div>
+	</div>
+</div>
+

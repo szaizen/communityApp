@@ -211,6 +211,12 @@ body {
     }
   }
 
+  .portfolio__edit {
+    .portfolio__edit-link {
+      color: black;
+    }
+  }
+
   margin-top: 75px;
 
   .setting {
@@ -231,7 +237,7 @@ body {
 
   }
 
-  .profile {
+  .profile,.portfolio {
     background-color: #fff;
     padding: 47px 40px;
   }
@@ -276,19 +282,84 @@ body {
 
 }
 
-/* プロフィール詳細ページ */
-.prof__topimage {
+/* ポートフォリオ編集ページ */
 
-  .col-sm-4 {
-    padding: 0;
+.portfolio {
+
+  &__top {
+
+    @include flex;
+    margin-bottom: 20px;
+
+    h1 {
+      margin: 0;
+    }
+
+    &-add {
+
+      line-height: 26px;
+      padding: 0 12px;
+      font-size: 12px;
+      font-weight: 300;
+      color: #6A6E71;
+      background: #f5f5f5;
+      border: 1px solid #ddd;
+
+      &::before {
+        @include font_awesome;
+        content: "\f055";
+      }
+      
+    }
+
+  }
+
+  &__list {
+    border: 1px solid #d2d2d2;
+    margin: 10px 0 30px;
+    background-color: #f7f7f7;
+    padding: 26px;
+  }
+
+  &__delete {
+    font-size: 13px;
+    color: #404040;
+  }
+
+
+}
+
+/* プロフィール詳細ページ */
+.profile__show {
+
+  &__block {
+    margin: 40px auto;
+    padding: 40px;
+    background-color: #fff;
   }
 
   img {
-    height: 300px;
+    height: 400px;
     object-fit: cover;
     width: 100%;
   }
 
+  .show__name {
+    font-size: 20px;
+    letter-spacing: 2px;
+  }
 
+  .show__country {
+
+    &::before {
+      @include font_awesome;
+      content: "\f3c5";
+    }
+
+  }
+
+  .show__biography {
+    margin: 20px 0;
+  }
 
 }

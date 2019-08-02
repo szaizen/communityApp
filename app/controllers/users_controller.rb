@@ -21,7 +21,9 @@ class UsersController < ApplicationController
 
   # プロフィール詳細
   def show
-    @profile = Profile.find(params[:id]);
+    @profile = Profile.find_by(user_id: params[:id]);
+    @portfolio = Portfolio.where(user_id: params[:id]);
+
   end
 
   # アカウント削除

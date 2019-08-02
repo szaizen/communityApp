@@ -10,7 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_22_080526) do
+ActiveRecord::Schema.define(version: 2019_08_02_055204) do
+
+  create_table "portfolios", force: :cascade do |t|
+    t.string "name"
+    t.string "url"
+    t.date "created_date"
+    t.string "detail"
+    t.string "port_image"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "profiles", force: :cascade do |t|
     t.string "username"

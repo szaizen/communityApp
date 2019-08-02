@@ -15,6 +15,12 @@ Rails.application.routes.draw do
 
 	delete '/user', to: 'users#delete',  as: 'delete_user'
 
+	# ポートフォリオ編集
+	patch '/portfolio', to: 'portfolios#update',  as: 'update_portfolio'
+	post '/portfolio', to: 'portfolios#new',  as: 'new_portfolio'
+ 	get '/portfolio', to: 'portfolios#edit',  as: 'edit_portfolio'
+ 	delete '/portfolio/:id', to: 'portfolios#delete',  as: 'delete_portfolio'
+
 	# devise_for :user
 	devise_for :user, controllers: { registrations: 'registrations' }
 

@@ -1,24 +1,47 @@
 
 
-<div class="prof__topimage">
 
+<div class="container profile__show">
 
-<div class="container">
+  <div class="profile__show__block">
 
-	<div class="prif_show">
+		<div class="row">
 
-		<%= image_tag(@profile.prof_image_url) if @profile.prof_image.present? %>
+			<div class="col-sm-8 show__image">
+				<% if current_user.profile.prof_image_url.nil? %>
+		      <%= image_tag('noicon.jpg') %>
+		    <% else %>
+		      <%= image_tag(@profile.prof_image_url) %>
+		    <% end %>
+  		</div>
 
-	
-	  <div>
-	    <%= @profile.name %>
-	  </div>
+  		<div class="col-sm-4">
+  			<div class="show__name"><%= @profile.name %>
+  				<span class="show__age">
+  				<% if @profile.age.nil? %><% else %>(<%= @profile.age %>)<% end %>
+  				</span>
+  			</div>
 
-	  <div>
-	    <%= @profile.age %>
-	  </div>
+  			<div class="show__country"><%= @profile.country %></div>
+	    	<div class="show__job"><%= @profile.jobs %></div>
+	    	<div class="show__biography"><%= @profile.biography %></div>
+	  		
+  		</div>
+
+  	</div>
+  </div>
+
+  <% if @portfolio.blank? %>
+	<% else %>
+  <div class="profile__show__block">
+
+    <% @portfolio.each do |portfolio| %>
+
+    <%= portfolio.url %>
+    
+    <% end %>
 
 	</div>
+  <% end %>
 	
-
 </div>

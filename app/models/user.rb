@@ -6,11 +6,13 @@ class User < ApplicationRecord
 
   has_one :profile
 	before_create :build_default_profile
+  has_many :portfolios, dependent: :destroy
 
 	private
 	def build_default_profile
 	     build_profile
 	     true
 	end
+
 	
 end
