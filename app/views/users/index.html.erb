@@ -6,7 +6,12 @@
 	  
 	  <%= link_to show_profile_path(profile.user_id) do %>
 		  <div class="card" style="width: 18rem;">
-			  <%= image_tag(profile.prof_image_url, :class => "card-img-top") if profile.prof_image.present? %>
+		  	<% if profile.prof_image_url.nil? %>
+		      <%= image_tag('noicon.jpg', :class => "card-img-top") %>
+		    <% else %>
+		      <%= image_tag(profile.prof_image_url, :class => "card-img-top") if profile.prof_image.present? %>
+		    <% end %>
+			  
 			  <div class="card-body">
 			    <h5 class="card-title"><%= profile.name %></h5>
 			    <p class="card-text">

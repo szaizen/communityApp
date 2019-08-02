@@ -7,14 +7,7 @@ class PortfoliosController < ApplicationController
   end
 
   def edit
-
-    if Portfolio.find_by(user_id: current_user.id).nil?
-      @portfolio = nil;
-    else
-      @portfolio = Portfolio.find_by(user_id: current_user.id);
-      @port = Portfolio.where(user_id: current_user.id);
-    end
-    
+    @port = Portfolio.where(user_id: current_user.id);
   end
    
   def update
@@ -33,7 +26,7 @@ class PortfoliosController < ApplicationController
  
   private
     def portfolios_params
-      params.permit(portfolios: [:name, :url, :port_image, :created_date, :details])[:portfolios]
+      params.permit(portfolios: [:name, :url, :created_date, :detail, :port_image])[:portfolios]
     end
 
 end
