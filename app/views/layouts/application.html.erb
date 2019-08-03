@@ -25,12 +25,11 @@
             <% end %>
           </button>
           <div class="dropdown-menu" aria-labelledby="dropdownMenu2"> 
-            <%= link_to "掲示板投稿", discussionboard_path, { :class => "dropdown-item" } %>
+            <%= link_to "掲示板投稿", new_article_path, { :class => "dropdown-item" } %>
             <%= link_to "プロフィール編集", profile_path, { :class => "dropdown-item" } %>
             <%= link_to("ログアウト", destroy_user_session_path, { method: :delete, data: {confirm: "ログアウトしますか？"}, class: "dropdown-item"}) %>
           </div>
         </div>
-          
 
         <% else %>
           <%= link_to "ログイン", new_user_session_path, { :class => "login" } %>

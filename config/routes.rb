@@ -22,7 +22,8 @@ Rails.application.routes.draw do
  	delete '/portfolio/:id', to: 'portfolios#delete',  as: 'delete_portfolio'
 
  	# 掲示板
- 	get '/discussionboard', to: 'discussionboards#new'
+
+ 	resource :article
 
 	# devise_for :user
 	devise_for :user, controllers: { registrations: 'registrations' }

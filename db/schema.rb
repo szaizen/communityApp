@@ -12,13 +12,14 @@
 
 ActiveRecord::Schema.define(version: 2019_08_03_015411) do
 
-  create_table "discussionboards", force: :cascade do |t|
+  create_table "articles", force: :cascade do |t|
     t.string "title"
     t.string "category"
     t.string "content"
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_articles_on_user_id"
   end
 
   create_table "portfolios", force: :cascade do |t|
@@ -30,6 +31,7 @@ ActiveRecord::Schema.define(version: 2019_08_03_015411) do
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_portfolios_on_user_id"
   end
 
   create_table "profiles", force: :cascade do |t|
@@ -56,16 +58,6 @@ ActiveRecord::Schema.define(version: 2019_08_03_015411) do
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-  end
-
-  create_table "users_profiles", force: :cascade do |t|
-    t.text "name"
-    t.integer "age"
-    t.text "jobs"
-    t.text "biography"
-    t.text "prof_image"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
 end

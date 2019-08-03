@@ -1,6 +1,6 @@
 class CreateDiscussionboards < ActiveRecord::Migration[5.2]
   def change
-    create_table :discussionboards do |t|
+    create_table :articles do |t|
       t.string :title
       t.string :category
       t.string :content
