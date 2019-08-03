@@ -1,0 +1,19 @@
+ja:
+  activerecord:
+    attributes:
+      profile:
+        name: 名前
+        country: 出身地
+        age: 年齢
+        jobs: 職業
+        biography: 自己紹介
+        prof_image: プロフィール画像
+      portfolio:
+        name: 名前
+        created_date: 作成月日
+        url: URL
+        detail: 詳細
+      article:
+        title: タイトル
+        category: カテゴリー
+        content: 内容

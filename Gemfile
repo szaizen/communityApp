@@ -18,6 +18,7 @@ gem 'devise-i18n'
 gem 'devise-i18n-views'
 gem 'carrierwave'
 gem 'font-awesome-sass', '~> 5.9.0'
+gem 'rails-i18n'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

@@ -16,8 +16,11 @@ class UsersController < ApplicationController
    @profile = Profile.find_by(user: current_user)
    if @profile.update(profile_params)
    	redirect_to profile_path, notice: 'success!'
+   else
+    render 'edit'
    end
   end
+
 
   # プロフィール詳細
   def show

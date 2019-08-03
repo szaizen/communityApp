@@ -37,25 +37,25 @@
 
 							<div class="form-row">
 						    <div class="form-group col-md-6">
-									<%= f.label :name, "名前" %>
+									<%= f.label :name %>
 									<%= f.text_field :name ,required: true ,:class => 'form-control' %>
 								</div>
 								<div class="form-group col-md-6">
-									<%= f.label :created_date, "作成月日" %>
+									<%= f.label :created_date %>
 									<%= f.date_field :created_date ,:class => 'form-control' %>
 								</div>
 							</div>
 
 							<div class="form-row">
 						    <div class="form-group col-md-12">
-									<%= f.label :url, "URL" %>
+									<%= f.label :url %>
 									<%= f.text_field :url ,:class => 'form-control' %>
 								</div>
 							</div>
 
 							<div class="form-row">
 						    <div class="form-group col-md-12">
-						    	<%= f.label :detail, "詳細" %>
+						    	<%= f.label :detail %>
 									<%= f.text_area :detail ,:class => 'form-control' %>
 								</div>
 							</div>
@@ -63,10 +63,6 @@
 							<%= link_to("この項目を削除", delete_portfolio_path(portfolio.id), {method: :delete, data: {confirm: "削除してよろしいですか？"},class: "portfolio__delete"}) %>
 
 						</div>
-
-							
-
-							
 									
 				    <% end %>
 				  <% end %>
