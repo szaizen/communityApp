@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_one :profile
 	before_create :build_default_profile
   has_many :portfolios, dependent: :destroy
+  has_many :articles
 
 	private
 	def build_default_profile

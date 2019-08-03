@@ -1,74 +1,9 @@
+<div class="article article_show">
 
-
-
-<div class="container profile__show">
-
-  <div class="profile__show__block">
-
-		<div class="row">
-
-			<div class="col-sm-8 show__image">
-				<% if @profile.prof_image_url.nil? %>
-		      <%= image_tag('noicon.jpg') %>
-		    <% else %>
-		      <%= image_tag(@profile.prof_image_url) %>
-		    <% end %>
-  		</div>
-
-  		<div class="col-sm-4">
-  			<div class="show__name"><%= @profile.name %>
-  				<span class="show__age">
-  				<% if @profile.age.nil? %><% else %>(<%= @profile.age %>)<% end %>
-  				</span>
-  			</div>
-
-  			<div class="show__country"><%= @profile.country %></div>
-	    	<div class="show__job"><%= @profile.jobs %></div>
-	    	<div class="show__biography"><%= @profile.biography %></div>
-	  		
-  		</div>
-
-  	</div>
+  <div class="container">
+  
+   
+a
   </div>
 
-  <% if @portfolio.blank? %>
-	<% else %>
-  <div class="profile__show__block portfolio__show">
-
-    <h2>ポートフォリオ・作品</h2>
-
-    <% @portfolio.each do |portfolio| %>
-
-      <% if portfolio.name.blank? %>
-      <% else %>
-
-      <div class="row">
-
-        <div class="col-sm-6 portfolio__show__image">
-
-          <% if portfolio.port_image_url.nil? %>
-            <%= image_tag('noimage.png') %>
-          <% else %>
-            <%= image_tag(portfolio.port_image_url) if portfolio.port_image.present? %>
-          <% end %>
-
-        </div>
-
-        <div class="col-sm-6 portfolio__show__text">
-        
-          <div class="name"><%= portfolio.name %></div>
-          <div class="created_date"><%= portfolio.created_date %></div>
-          <div class="url"><%= portfolio.url %></div>
-          
-          <div class="detail"><%= portfolio.detail %></div>
-
-        </div>
-      </div>  
-
-      <% end %>
-    <% end %>
-
-	</div>
-  <% end %>
-	
 </div>

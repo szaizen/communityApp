@@ -7,14 +7,27 @@ class ArticlesController < ApplicationController
   	@article = Article.new
   end
 
+  def create
+    article = current_user.articles.build(article_params)
+    if article.save
+      redirect_to article_path, notice: 'success!'
+    else
+      redirect_to article_path, notice: 'エラーが発生しました'
+    end
+  end
+
+  def index
+    @article = Article.all
+  end
+
 
   private 
   	def auth_user
   		redirect_to new_user_registration_path unless user_signed_in?
   	end
 
-    def profile_params
-      params.require(:profile).permit(:name, :age, :country, :prof_image, :jobs, :biography)
+    def article_params
+      params.require(:article).permit(:title, :category, :content)
     end
 
 end
