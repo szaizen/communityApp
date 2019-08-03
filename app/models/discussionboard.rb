@@ -1,0 +1,2 @@
+class Discussionboard < ApplicationRecord
+end

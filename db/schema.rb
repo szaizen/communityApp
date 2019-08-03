@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_02_055204) do
+ActiveRecord::Schema.define(version: 2019_08_03_015411) do
+
+  create_table "discussionboards", force: :cascade do |t|
+    t.string "title"
+    t.string "category"
+    t.string "content"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "portfolios", force: :cascade do |t|
     t.string "name"
