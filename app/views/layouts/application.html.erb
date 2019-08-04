@@ -15,34 +15,113 @@
       <div class="container gnav__inner">
         <div class="gnav__left"><a href="/">コミュっと！</a></div>
           <div class="gnav__right">
-        <% if user_signed_in? %>
-          <div class="dropdown">
-          <button class="btn dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <% if current_user.profile.prof_image_url.nil? %>
-              <%= image_tag('noicon.jpg') %>
+            <% if user_signed_in? %>
+              <%= link_to "ユーザ一覧", root_path, { :class => "#{'is-active' if current_page?(root_path)}" } %>
+              <%= link_to "掲示板", article_path, { :class => "#{'is-active' if current_page?('/article')}" } %>
+              <div class="dropdown">
+
+                <button class="btn dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+                <% if current_user.profile.prof_image_url.nil? %>
+                  <%= image_tag('noicon.jpg') %>
+                <% else %>
+                  <%= image_tag(current_user.profile.prof_image_url) if current_user.profile.prof_image.present? %>
+                <% end %>
+
+                </button>
+
+                <div class="dropdown-menu" aria-labelledby="dropdownMenu2"> 
+                  <%= link_to "プロフィール編集", profile_path, { :class => "dropdown-item" } %>
+                  <%= link_to("ログアウト", destroy_user_session_path, { method: :delete, data: {confirm: "ログアウトしますか？"}, class: "dropdown-item"}) %>
+                </div>
+              </div>
+
             <% else %>
-              <%= image_tag(current_user.profile.prof_image_url) if current_user.profile.prof_image.present? %>
+
+              <%= link_to "ログイン", new_user_session_path, { :class => "login" } %>
+
             <% end %>
-          </button>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenu2"> 
-            <%= link_to "掲示板投稿", new_article_path, { :class => "dropdown-item" } %>
-            <%= link_to "プロフィール編集", profile_path, { :class => "dropdown-item" } %>
-            <%= link_to("ログアウト", destroy_user_session_path, { method: :delete, data: {confirm: "ログアウトしますか？"}, class: "dropdown-item"}) %>
-          </div>
+
         </div>
-
-        <% else %>
-          <%= link_to "ログイン", new_user_session_path, { :class => "login" } %>
-        <% end %>
-          </div>
-
       </div>
     </header>
+
     <p class="notice">
       <%= notice %>
     </p>
-    <%= yield %>
+
+    <% if user_signed_in? %>
+
+    <div class="container common__body">
+
+      <div class="row">
+        
+
+        <!-- メイン -->
+        <div class="col-sm-9">
+          <%= yield %>
+        </div>
+
+
+        <!-- サイドバー -->
+        <div class="col-sm-3">
+          <!-- 自分のプロフィール情報 -->
+          <div class="myprofile">
+            
+            <% profile = Profile.find_by(user_id: current_user.id) %>
+
+            <div class="myprofile__title">
+              自分のプロフィール
+            </div>
+
+            <div class="myprofile__image">
+              <% if profile.prof_image_url.nil? %>
+                <%= image_tag('noicon.jpg', :class => "card-img-top") %>
+              <% else %>
+                <%= image_tag(profile.prof_image_url, :class => "card-img-top") if profile.prof_image.present? %>
+              <% end %>
+            </div>
+            
+            <h5 class="myprofile__name">
+              <%= profile.name %>
+            </h5>
+
+            <div class="myprofile__country">
+              <%= profile.country %>
+            </div>
+
+            <div class="myprofile__jobs">
+              <%= profile.jobs %>
+            </div>
+
+            <div class="myprofile__biography">
+              <%= profile.biography %>
+            </div>
+            
+            <%= link_to "詳細", show_profile_path(profile.user_id), { :class => "myprofile__show" } %>
+            <%= link_to "編集する", profile_path, { :class => "myprofile__edit" } %>
+
+          </div>
+          
+          <!-- 掲示板情報 -->
+          <div class="newarticle">
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+    
+    <% else %>
+
+      <%= yield %>
+
+    <% end %>
+
 
     <p class="alert"><%= alert %></p>
+
   </body>
 </html>

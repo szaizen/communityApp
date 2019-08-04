@@ -5,26 +5,57 @@
     <div class="article__top">
       <h1>掲示板</h1>
       <h2>悩みまでは行かないけれど、他の人の意見や考え方も聞いてみたい、素朴な疑問など質問してみましょう。</h2>
+
+      <div class="new_link">
+        <%= link_to "掲示板に投稿する",new_article_path, { :class => "btn btn-outline-success" } %>
+      </div>
     </div>
 
     <% @article.each do |article| %>
-      
+      <% profile = Profile.find_by(user: article.user) %>
+
+
       <%= link_to show_articles_path(article.id) do %>
 
         <div class="article__list">
 
-          <div class="title">
-            <%= article.title %>
-          </div>
-
-          <div class="category">
-            <%= article.category %>
-          </div>
           
-          <div class="content">
-            <%= article.content %>
-          </div>
+          <div class="article__list__user">
 
+            <div class="header">
+
+              <div class="left">
+
+                <% if profile.prof_image_url.nil? %>
+                  <%= image_tag('noicon.jpg', :class => "image") %>
+                <% else %>
+                  <%= image_tag(profile.prof_image_url, :class => "image") if profile.prof_image.present? %>
+                <% end %>
+                
+                <div class="header__date">
+                  <div class="name"><%= profile.name %></div>
+                  <div class="date"><%= article.created_at.strftime('%Y.%m.%d') %></div>
+                </div>
+
+              </div>
+          
+            </div>
+
+            <div class="main">
+              <div class="title">
+                <%= truncate(article.title, length: 100) %>
+              </div>
+              
+              <div class="content">
+                <%= truncate(article.content, length: 150) %>
+              </div>
+            </div>
+
+            <div class="footer">
+              <div class="category"><%= article.category %></div>
+            </div>
+
+          </div>
         </div>
 
       <% end %>

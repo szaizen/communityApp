@@ -17,7 +17,30 @@ class ArticlesController < ApplicationController
   end
 
   def index
-    @article = Article.all
+    @article = Article.all.order(updated_at: "DESC")
+  end
+
+  def show
+    @article = Article.find_by(id: params[:id]);
+    @profile = Profile.find_by(user: @article.user)
+  end
+
+  def edit
+    @article = Article.find_by(id: params[:id])
+  end
+
+  def update 
+   @article = Article.find_by(id: params[:id])
+   if @article.update(article_params)
+    redirect_to article_path, notice: 'success!'
+   else
+    render 'edit'
+   end
+  end
+
+  def destroy
+    Article.find(params[:id]).delete
+    redirect_to article_path, notice: '削除しました'
   end
 
 

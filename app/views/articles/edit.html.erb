@@ -1,1 +1,44 @@
-edit
+
+
+<div class="article article_edit">
+
+  <div class="container">
+    
+    <h2>編集ページ</h2>
+
+    <%= form_for @article, url: update_article_path(@article.id) do |f| %>
+
+      <div class="form-row">
+
+        <div class="form-group col-md-6">
+          <%= f.label :title %>
+          <%= f.text_field :title, required: true, :class => 'form-control' %>
+        </div>
+
+      </div>
+
+      <div class="form-row">
+
+        <div class="form-group col-md-3">
+          <%= f.label :category %>
+          <%= f.select :category, [["質問", "質問"],["共有", "共有"],["つぶやき", "つぶやき"],["その他", "その他"]] ,class:"form_select form-control" %>
+        </div>
+
+      </div>
+
+      <div class="form-row">
+
+        <div class="form-group col-md-12">
+          <%= f.label :content %>
+          <%= f.text_area :content, required: true ,:class => 'form-control' %>
+        </div>
+
+      </div>
+
+      <%= f.submit "保存" %>
+
+    <% end %>
+
+  </div>
+
+</div>

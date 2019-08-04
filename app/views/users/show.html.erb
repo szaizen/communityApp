@@ -16,12 +16,7 @@
   		</div>
 
   		<div class="col-sm-4">
-  			<div class="show__name"><%= @profile.name %>
-  				<span class="show__age">
-  				<% if @profile.age.nil? %><% else %>(<%= @profile.age %>)<% end %>
-  				</span>
-  			</div>
-
+  			<div class="show__name"><%= @profile.name %></div>
   			<div class="show__country"><%= @profile.country %></div>
 	    	<div class="show__job"><%= @profile.jobs %></div>
 	    	<div class="show__biography"><%= @profile.biography %></div>

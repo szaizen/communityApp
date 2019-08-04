@@ -23,9 +23,12 @@ Rails.application.routes.draw do
 
  	# 掲示板
  	
- 	resource :article, only: [:new, :update, :destroy]
+ 	resource :article, only: [:new, :create]
  	get '/article', to: 'articles#index'
  	get '/article/:id', to: 'articles#show',  as: 'show_articles'
+ 	get '/article/edit/:id', to: 'articles#edit',  as: 'edit_article'
+ 	patch '/article/edit/:id', to: 'articles#update',  as: 'update_article'
+ 	delete '/article/:id', to: 'articles#destroy',  as: 'destroy_article'
 
 
 	# devise_for :user

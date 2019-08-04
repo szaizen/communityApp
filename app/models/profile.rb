@@ -1,6 +1,8 @@
 class Profile < ApplicationRecord
-	mount_uploader :prof_image, PictureUploader
+  
   belongs_to :user
+
+	mount_uploader :prof_image, PictureUploader
 
   validates :name, presence: true
   validates :country,  presence: true

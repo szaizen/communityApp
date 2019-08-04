@@ -21,7 +21,7 @@
 
         <div class="form-group col-md-3">
           <%= f.label :category %>
-          <%= f.text_field :category, required: true, :class => 'form-control' %>
+          <%= f.select :category, [["質問", "質問"],["共有", "共有"],["つぶやき", "つぶやき"],["その他", "その他"]] ,class:"form_select form-control" %>
         </div>
 
       </div>
