@@ -59,10 +59,53 @@
 
       </div>
 
-      <div class="article__comment">
-        aaa
-      </div>
+      <div class="comment">
 
+        <%= form_for @comment_new, url: update_comment_path do |f| %>
+
+          <div class="form-row">
+
+            <div class="form-group col-md-6">
+              <%= f.label :content %>
+              <%= f.text_area :content, required: true, :class => 'form-control' %>
+            </div>
+
+          </div>
+
+          <%= f.submit "投稿" %>
+
+        <% end %>
+
+
+        <% @comment.each do |comment| %>
+        <% comment_user = Profile.find_by(user: comment.user) %>
+
+        <div class="comment__list">
+        
+          <div class="left">
+
+            <% if comment_user.prof_image_url.nil? %>
+              <%= image_tag('noicon.jpg', :class => "image") %>
+            <% else %>
+              <%= image_tag(comment_user.prof_image_url, :class => "image") %>
+            <% end %>
+            
+            <div class="header__date">
+              <div class="name"><%= comment_user.name %></div>
+              <div class="date"><%= comment.created_at.strftime('%Y.%m.%d') %></div>
+            </div>
+
+          </div>
+
+           <div class="right">
+            <%= comment.content %>
+          </div>
+
+        </div>
+
+        <% end %>
+
+      </div>
     </div>
 
   </div>

@@ -1,16 +1,19 @@
 class UsersController < ApplicationController
 
   before_action :auth_user
+  before_action :set_profile
 
   # プロフィール一覧
   def index
   	@prof = Profile.where.not(name: "")
+    @profile = Profile.find_by(user: current_user)
   end
 
   # プロフィール編集
   def edit
-  	@profile = Profile.find_by(user: current_user)
+  	@profile = Profile.find_by(user: current_user) || Profile.create(user: current_user)
   end
+
 
   def update 
    @profile = Profile.find_by(user: current_user)
@@ -24,9 +27,8 @@ class UsersController < ApplicationController
 
   # プロフィール詳細
   def show
-    @profile = Profile.find_by(user_id: params[:id]);
+    @profile = Profile.find_by(user_id: params[:id])
     @portfolio = Portfolio.where(user_id: params[:id]);
-
   end
 
   # アカウント削除
@@ -41,6 +43,10 @@ class UsersController < ApplicationController
   	def auth_user
   		redirect_to new_user_registration_path unless user_signed_in?
   	end
+
+    def set_profile
+      @profile = Profile.find_by(user: current_user) || Profile.create(user: current_user)
+    end
 
     def profile_params
       params.require(:profile).permit(:name, :age, :country, :prof_image, :jobs, :biography)

@@ -1,7 +1,10 @@
 <div class="container">
 
+	<div class="row">
 
-	<div class="card-list">
+
+
+	<div class="card-list col-sm-9">
 	<% @prof.each do |profile| %>
 	  
 	  <%= link_to show_profile_path(profile.user_id) do %>
@@ -26,5 +29,52 @@
 
 	<% end %>
 	</div>
+
+	<!-- サイドバー -->
+  <div class="col-sm-3">
+    <!-- 自分のプロフィール情報 -->
+    <div class="myprofile">
+      
+      <div class="myprofile__title">
+        自分のプロフィール
+      </div>
+
+      <div class="myprofile__image">
+        <% if @profile.prof_image_url.nil? %>
+          <%= image_tag('noicon.jpg', :class => "card-img-top") %>
+        <% else %>
+          <%= image_tag(@profile.prof_image_url, :class => "card-img-top") %>
+        <% end %>
+      </div>
+      
+      <h5 class="myprofile__name">
+        <%= @profile.name %>
+      </h5>
+
+      <div class="myprofile__country">
+        <%= @profile.country %>
+      </div>
+
+      <div class="myprofile__jobs">
+        <%= @profile.jobs %>
+      </div>
+
+      <div class="myprofile__biography">
+        <%= @profile.biography %>
+      </div>
+      
+      <%= link_to "詳細", show_profile_path(@profile.user_id), { :class => "myprofile__show" } %>
+      <%= link_to "編集する", profile_path, { :class => "myprofile__edit" } %>
+
+    </div>
+    
+    <!-- 掲示板情報 -->
+    <div class="newarticle">
+
+    </div>
+
+  </div>
+
+  </div>
 	
 </div>

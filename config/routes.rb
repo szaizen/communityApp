@@ -30,6 +30,9 @@ Rails.application.routes.draw do
  	patch '/article/edit/:id', to: 'articles#update',  as: 'update_article'
  	delete '/article/:id', to: 'articles#destroy',  as: 'destroy_article'
 
+ 	post '/article/:id', to: 'articles#create_comment',  as: 'create_comment'
+ 	patch '/article/:id', to: 'articles#update_comment',  as: 'update_comment'
+
 
 	# devise_for :user
 	devise_for :user, controllers: { registrations: 'registrations' }

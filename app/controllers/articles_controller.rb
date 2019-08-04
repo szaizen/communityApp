@@ -21,8 +21,13 @@ class ArticlesController < ApplicationController
   end
 
   def show
-    @article = Article.find_by(id: params[:id]);
+
+    @article = Article.find_by(id: params[:id])
     @profile = Profile.find_by(user: @article.user)
+
+    @comment_new = Comment.new
+    @comment = Comment.where(article: params[:id])
+
   end
 
   def edit
@@ -43,6 +48,26 @@ class ArticlesController < ApplicationController
     redirect_to article_path, notice: '削除しました'
   end
 
+  def create_comment
+    comment = current_user.comments.build(comment_params)
+    comment.attributes = { article_id: params[:id] }
+    if comment.save
+      redirect_to article_path, notice: 'success!'
+    else
+      redirect_to article_path, notice: 'エラーが発生しました'
+    end
+
+  end
+
+  def update_comment
+    @comment = Comment.find_by(user: current_user.id)
+      if @comment.update(comment_params)
+        redirect_to article_path, notice: 'success!'
+      else
+        render 'edit'
+      end
+  end
+
 
   private 
   	def auth_user
@@ -51,6 +76,10 @@ class ArticlesController < ApplicationController
 
     def article_params
       params.require(:article).permit(:title, :category, :content)
+    end
+
+    def comment_params
+      params.require(:comment).permit(:content)
     end
 
 end

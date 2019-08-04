@@ -8,12 +8,11 @@ class User < ApplicationRecord
   has_many :articles
   has_many :comments
 
-  before_create :build_default_profile
+  after_create :build_default_profile
 
 	private
   	def build_default_profile
       build_profile
-      true
   	end
 
 end

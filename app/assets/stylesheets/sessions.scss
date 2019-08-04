@@ -45,6 +45,13 @@ $dark-color: #757575;
   background: #f5f5f5;
   border: 1px solid #ddd;
 }
+@mixin user_icon {
+  height: 200px;
+  object-position: top;
+  object-fit: cover;
+  width: 200px;
+  border-radius: 50%;
+}
 
 /* common */
 
@@ -139,11 +146,7 @@ form select {
     margin: 15px 0 10px;
 
     img {
-      width: 200px;
-      height: 200px;
-      object-fit: cover;
-      object-position: center;
-      border-radius: 50%;
+      @include user_icon;
     }
 
   }
@@ -439,10 +442,7 @@ form select {
       margin: 0 0 30px;
 
       img {
-        height: 200px;
-        object-position: top;
-        object-fit: cover;
-        width: 300px;
+        @include user_icon;
       }
       input {
         margin: 10px 0;
@@ -639,9 +639,26 @@ form select {
 
   }
 
-
-
 }
 
 
+.comment {
+
+  &__list {
+
+    .left {
+      display: flex;
+
+      img {
+        @include user_icon;
+        height: 50px;
+        width: 50px;
+      }
+    }
+
+    
+
+  }
+
+}
 

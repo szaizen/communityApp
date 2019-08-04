@@ -22,7 +22,7 @@
 
                 <button class="btn dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 
-                <% if current_user.profile.prof_image_url.nil? %>
+                <% if current_user.profile.nil? || current_user.profile.prof_image_url.nil? %>
                   <%= image_tag('noicon.jpg') %>
                 <% else %>
                   <%= image_tag(current_user.profile.prof_image_url) if current_user.profile.prof_image.present? %>
@@ -58,56 +58,8 @@
         
 
         <!-- メイン -->
-        <div class="col-sm-9">
+        <div class="col-sm-12">
           <%= yield %>
-        </div>
-
-
-        <!-- サイドバー -->
-        <div class="col-sm-3">
-          <!-- 自分のプロフィール情報 -->
-          <div class="myprofile">
-            
-            <% profile = Profile.find_by(user_id: current_user.id) %>
-
-            <div class="myprofile__title">
-              自分のプロフィール
-            </div>
-
-            <div class="myprofile__image">
-              <% if profile.prof_image_url.nil? %>
-                <%= image_tag('noicon.jpg', :class => "card-img-top") %>
-              <% else %>
-                <%= image_tag(profile.prof_image_url, :class => "card-img-top") if profile.prof_image.present? %>
-              <% end %>
-            </div>
-            
-            <h5 class="myprofile__name">
-              <%= profile.name %>
-            </h5>
-
-            <div class="myprofile__country">
-              <%= profile.country %>
-            </div>
-
-            <div class="myprofile__jobs">
-              <%= profile.jobs %>
-            </div>
-
-            <div class="myprofile__biography">
-              <%= profile.biography %>
-            </div>
-            
-            <%= link_to "詳細", show_profile_path(profile.user_id), { :class => "myprofile__show" } %>
-            <%= link_to "編集する", profile_path, { :class => "myprofile__edit" } %>
-
-          </div>
-          
-          <!-- 掲示板情報 -->
-          <div class="newarticle">
-
-          </div>
-
         </div>
 
       </div>
