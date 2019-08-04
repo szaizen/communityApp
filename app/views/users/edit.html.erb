@@ -64,7 +64,7 @@
 							<%= f.label :prof_image %>
 							<%= image_tag(@profile.prof_image_url) if @profile.prof_image.present? %>
 					    
-					    <%= f.file_field :prof_image, required: true, id: :book_picture %>
+					    <%= f.file_field :prof_image, id: :book_picture %>
 					    </div>
 					   </div>
 						<div>
