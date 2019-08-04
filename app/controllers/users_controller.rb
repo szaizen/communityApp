@@ -34,7 +34,7 @@ class UsersController < ApplicationController
   # アカウント削除
   def delete
     # ユーザ削除 → セッションクリア　→ ログイン画面にリダイレクト
-    Profile.find_by(user: current_user).delete
+    User.find_by(id: current_user).destroy
     session.clear
     redirect_to new_user_session_path
   end
