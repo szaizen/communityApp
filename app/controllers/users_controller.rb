@@ -5,7 +5,7 @@ class UsersController < ApplicationController
 
   # プロフィール一覧
   def index
-  	@prof = Profile.where.not(name: "")
+  	@prof = Profile.where.not(name: "").order(updated_at: "DESC")
     @profile = Profile.find_by(user: current_user)
   end
 

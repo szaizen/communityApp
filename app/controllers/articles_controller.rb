@@ -52,20 +52,18 @@ class ArticlesController < ApplicationController
     comment = current_user.comments.build(comment_params)
     comment.attributes = { article_id: params[:id] }
     if comment.save
-      redirect_to article_path, notice: 'success!'
+      redirect_to show_articles_path(params[:id]), notice: 'success!'
     else
-      redirect_to article_path, notice: 'エラーが発生しました'
+      redirect_to show_articles_path(params[:id]), notice: 'エラーが発生しました'
     end
 
   end
 
-  def update_comment
-    @comment = Comment.find_by(user: current_user.id)
-      if @comment.update(comment_params)
-        redirect_to article_path, notice: 'success!'
-      else
-        render 'edit'
-      end
+
+  def destroy_comment
+    article_id = Comment.find(params[:id]).article_id
+    Comment.find(params[:id]).delete
+    redirect_to show_articles_path(article_id), notice: '削除しました'
   end
 
 

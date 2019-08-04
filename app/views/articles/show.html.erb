@@ -25,16 +25,20 @@
           </div>
 
           <div class="right">
+            
+            <% if @article.user.id == current_user.id %>
 
-            <div class="btn-group">
-              <button class="btn" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="fas fa-ellipsis-h"></i>
-              </button>
-              <div class="dropdown-menu">
-                <%= link_to "編集", edit_article_path(@article.id), { :class => "dropdown-item" } %>
-                <%= link_to("削除", destroy_article_path(@article.id), { method: :delete, data: {confirm: "記事を削除してもよろしいですか？"}, class: "dropdown-item"}) %>
+              <div class="btn-group">
+                <button class="btn" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <i class="fas fa-ellipsis-h"></i>
+                </button>
+                <div class="dropdown-menu">
+                  <%= link_to "編集", edit_article_path(@article.id), { :class => "dropdown-item" } %>
+                  <%= link_to("削除", destroy_article_path(@article.id), { method: :delete, data: {confirm: "記事を削除してもよろしいですか？"}, class: "dropdown-item"}) %>
+                </div>
               </div>
-            </div>
+
+            <% end %>
 
           </div>
       
@@ -72,7 +76,7 @@
 
           </div>
 
-          <%= f.submit "投稿" %>
+          <%= f.submit "投稿", {:class => 'btn btn-sm btn-success'} %>
 
         <% end %>
 
@@ -89,16 +93,33 @@
             <% else %>
               <%= image_tag(comment_user.prof_image_url, :class => "image") %>
             <% end %>
-            
-            <div class="header__date">
-              <div class="name"><%= comment_user.name %></div>
-              <div class="date"><%= comment.created_at.strftime('%Y.%m.%d') %></div>
-            </div>
 
           </div>
 
            <div class="right">
-            <%= comment.content %>
+
+            <div class="body">
+
+              <div class="header__date">
+
+                <div class="name"><%= comment_user.name %></div>
+                <div class="date"><%= comment.created_at.strftime('%Y.%m.%d') %></div>
+
+              </div>
+              <div class="content"><%= simple_format(comment.content) %></div>
+
+              
+
+            </div>
+
+            <% if comment.user.id == current_user.id %>
+
+            <div class="link">
+              <%= link_to("コメント削除", destroy_comment_path(comment.id), { method: :delete, data: {confirm: "コメントを削除してもよろしいですか？"}, class: "comment_delete"}) %>
+            </div>
+            
+            <% end %>
+            
           </div>
 
         </div>

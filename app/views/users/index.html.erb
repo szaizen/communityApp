@@ -51,9 +51,13 @@
         <%= @profile.name %>
       </h5>
 
+      <% if @profile.country != nil %>
+
       <div class="myprofile__country">
         <%= @profile.country %>
       </div>
+
+      <% end %>
 
       <div class="myprofile__jobs">
         <%= @profile.jobs %>

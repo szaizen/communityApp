@@ -32,6 +32,9 @@ Rails.application.routes.draw do
 
  	post '/article/:id', to: 'articles#create_comment',  as: 'create_comment'
  	patch '/article/:id', to: 'articles#update_comment',  as: 'update_comment'
+  delete '/article/comment/:id', to: 'articles#destroy_comment',  as: 'destroy_comment'
+
+ 	
 
 
 	# devise_for :user
