@@ -301,6 +301,10 @@ form select {
 /* プロフィール編集ページ */
 .edit {
 
+  #profile_biography {
+    height: 200px;
+  }
+
   .profile__edit {
     .profile__edit-link {
       color: black;
@@ -397,6 +401,10 @@ form select {
 /* ポートフォリオ編集ページ */
 
 .portfolio {
+
+  textarea.form-control {
+    height: 150px;
+  }
 
   &__top {
 

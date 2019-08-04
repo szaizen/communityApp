@@ -5,60 +5,65 @@
     
    <div class="article__list article__show">
 
-          <div class="article__list__user">
+      <div class="article__list__user">
 
-            <div class="header">
+        <div class="header">
 
-              <div class="left">
+          <div class="left">
 
-                <% if @profile.prof_image_url.nil? %>
-                  <%= image_tag('noicon.jpg', :class => "image") %>
-                <% else %>
-                  <%= image_tag(@profile.prof_image_url, :class => "image") %>
-                <% end %>
-                
-                <div class="header__date">
-                  <div class="name"><%= @profile.name %></div>
-                  <div class="date"><%= @article.created_at.strftime('%Y.%m.%d') %></div>
-                </div>
-
-              </div>
-
-              <div class="right">
-
-                <div class="btn-group">
-                  <button class="btn" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i class="fas fa-ellipsis-h"></i>
-                  </button>
-                  <div class="dropdown-menu">
-                    <%= link_to "編集", edit_article_path(@article.id), { :class => "dropdown-item" } %>
-                    <%= link_to("削除", destroy_article_path(@article.id), { method: :delete, data: {confirm: "記事を削除してもよろしいですか？"}, class: "dropdown-item"}) %>
-                  </div>
-                </div>
-
-              </div>
-          
-            </div>
-
-            <div class="main">
-              <div class="title">
-                <div><%= @article.title %></div>
-                <div class="category"><%= @article.category %></div>
-              </div>
-
-              
-              
-              <div class="content">
-                <%= simple_format(@article.content) %>
-              </div>
-            </div>
-
-            <div class="footer">
-              
+            <% if @profile.prof_image_url.nil? %>
+              <%= image_tag('noicon.jpg', :class => "image") %>
+            <% else %>
+              <%= image_tag(@profile.prof_image_url, :class => "image") %>
+            <% end %>
+            
+            <div class="header__date">
+              <div class="name"><%= @profile.name %></div>
+              <div class="date"><%= @article.created_at.strftime('%Y.%m.%d') %></div>
             </div>
 
           </div>
+
+          <div class="right">
+
+            <div class="btn-group">
+              <button class="btn" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-ellipsis-h"></i>
+              </button>
+              <div class="dropdown-menu">
+                <%= link_to "編集", edit_article_path(@article.id), { :class => "dropdown-item" } %>
+                <%= link_to("削除", destroy_article_path(@article.id), { method: :delete, data: {confirm: "記事を削除してもよろしいですか？"}, class: "dropdown-item"}) %>
+              </div>
+            </div>
+
+          </div>
+      
         </div>
+
+        <div class="main">
+
+          <div class="title">
+            <div><%= @article.title %></div>
+            <div class="category"><%= @article.category %></div>
+          </div>
+
+          <div class="content">
+            <%= simple_format(@article.content) %>
+          </div>
+
+        </div>
+
+        <div class="footer">
+          
+        </div>
+
+      </div>
+
+      <div class="article__comment">
+        aaa
+      </div>
+
+    </div>
 
   </div>
 
