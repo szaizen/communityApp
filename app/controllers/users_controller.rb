@@ -18,7 +18,7 @@ class UsersController < ApplicationController
   def update 
    @profile = Profile.find_by(user: current_user)
    if @profile.update(profile_params)
-   	redirect_to profile_path, notice: 'success!'
+   	redirect_to profile_path, notice: '保存しました'
    else
     render 'edit'
    end
