@@ -1,24 +1,10 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Railsでコミュニケーションアプリを作成しました。
 
-Things you may want to cover:
+* 機能
+・ユーザ登録、ログイン、削除
+・プロフィール（編集）
+・ポートフォリオ（登録、編集、削除）
+・掲示板投稿、コメント（登録、編集、削除）
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
