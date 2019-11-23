@@ -30,13 +30,13 @@ Kernel configured for up to 8 processors.
 Processor type: x86_64h (Intel x86-64h Haswell)
 Processors active: 0 1 2 3 4 5 6 7
 Primary memory available: 16.00 gigabytes
-Default processor set: 558 tasks, 2890 threads, 8 processors
-Load average: 2.34, Mach factor: 5.68
+Default processor set: 554 tasks, 2927 threads, 8 processors
+Load average: 2.31, Mach factor: 5.68
 /bin/machine           = unknown
 /usr/bin/oslevel       = unknown
 /bin/universe          = unknown
 
-PATH: /Users/sadahiro/.rbenv/versions/2.6.1/bin
+PATH: /Users/sadahiro/.rbenv/versions/2.6.4/bin
 PATH: /usr/local/Cellar/rbenv/1.1.2/libexec
 PATH: /Users/sadahiro/.npm-global/bin
 PATH: /usr/local/opt/mysql@8.0/bin
