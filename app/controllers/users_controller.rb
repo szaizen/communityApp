@@ -18,7 +18,7 @@ class UsersController < ApplicationController
   def update
    @profile = Profile.find_by(user: current_user)
    if @profile.update(profile_params)
-      Slack.chat_postMessage(text: "#{@profile.name}さんがプロフィールを更新しました。\n好きな食べ物: #{@profile.food}\n最寄駅: #{@profile.station}\n職業: #{@profile.jobs ||= "-"}\n自己紹介: #{@profile.biography ||= "-"}", username: "飲み会マスター", channel: ENV["CHANNEL"])
+      Slack.chat_postMessage(text: "#{@profile.name}さんがプロフィールを更新しました。\n好きな食べ物: #{@profile.food}\n最寄駅: #{@profile.station}\n職業: #{@profile.jobs ||= "-"}\n自己紹介: #{@profile.biography ||= "-"}", username: "#{@profile.name}", channel: ENV["CHANNEL"])
    	  redirect_to profile_path, notice: '保存しました'
    else
     render 'edit'
