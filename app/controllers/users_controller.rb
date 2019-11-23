@@ -15,7 +15,7 @@ class UsersController < ApplicationController
   end
 
 
-  def update 
+  def update
    @profile = Profile.find_by(user: current_user)
    if @profile.update(profile_params)
    	redirect_to profile_path, notice: '保存しました'
@@ -49,7 +49,7 @@ class UsersController < ApplicationController
     end
 
     def profile_params
-      params.require(:profile).permit(:name, :age, :country, :prof_image, :jobs, :biography)
+      params.require(:profile).permit(:name, :age, :country, :prof_image, :jobs, :biography, :food, :station)
     end
 
 end

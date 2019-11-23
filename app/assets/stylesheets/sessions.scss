@@ -56,7 +56,7 @@ $dark-color: #757575;
 /* common */
 
 body {
-  line-height: 1.5; 
+  line-height: 1.5;
   background-color: #f6f9fa;
 }
 
@@ -92,7 +92,7 @@ form select {
 		@include flex;
 		height: 70px;
     max-width: 1100px;
-		
+
 	}
   .gnav__left {
     a {
@@ -125,7 +125,7 @@ form select {
       border-radius: 50%;
     }
   }
-	
+
 }
 
 /* サイドバー */
@@ -266,7 +266,7 @@ form select {
 
       border: none;
       border-radius: 0;
-      
+
       .country {
 
         font-size: 14px;
@@ -277,6 +277,28 @@ form select {
         }
 
       }
+
+      .food {
+        font-size: 14px;
+        width: 50%;
+        float: left;
+        margin-bottom: 5px;
+        &::before {
+          @include font_awesome;
+          content: "\f2e7";
+        }
+      }
+
+      .station {
+        font-size: 14px;
+        margin-bottom: 5px;
+        &::before {
+          @include font_awesome;
+          content: "\f238";
+        }
+      }
+
+
 
       .job {
         margin: 10px 0;
@@ -368,7 +390,7 @@ form select {
 
     label {
       display: block;
-    } 
+    }
 
     #book_picture {
       margin: 10px;
@@ -425,7 +447,7 @@ form select {
         @include font_awesome;
         content: "\f055";
       }
-      
+
     }
 
   }
@@ -535,7 +557,7 @@ form select {
   .url {
     margin: 10px 0;
     font-size: 13px;
-  
+
   }
 
 }
@@ -589,7 +611,7 @@ form select {
         }
 
       }
-        
+
       /* リスト内メインコンテンツ */
       .main {
         margin: 15px 0;
@@ -627,7 +649,7 @@ form select {
       padding: 0 0 20px;
       margin: 0 0 40px;
     }
-    
+
     &:hover {
       box-shadow: none;
     }
@@ -687,9 +709,8 @@ form select {
       }
     }
 
-    
+
 
   }
 
 }
-

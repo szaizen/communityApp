@@ -19,8 +19,9 @@
   			<div class="show__name"><%= @profile.name %></div>
   			<div class="show__country"><%= @profile.country %></div>
 	    	<div class="show__job"><%= @profile.jobs %></div>
+        <div class="show__food"><%= @profile.food %></div>
+        <div class="show__station"><%= @profile.station %></div>
 	    	<div class="show__biography"><%= @profile.biography %></div>
-	  		
   		</div>
 
   	</div>
@@ -50,20 +51,20 @@
         </div>
 
         <div class="col-sm-6 portfolio__show__text">
-        
+
           <div class="name"><%= portfolio.name %></div>
           <div class="created_date"><%= portfolio.created_date %></div>
           <div class="url"><%= portfolio.url %></div>
-          
+
           <div class="detail"><%= portfolio.detail %></div>
 
         </div>
-      </div>  
+      </div>
 
       <% end %>
     <% end %>
 
 	</div>
   <% end %>
-	
+
 </div>

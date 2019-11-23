@@ -8,6 +8,8 @@ ja:
         jobs: 職業
         biography: 自己紹介
         prof_image: プロフィール画像
+        food: 好きな食べ物
+        station: 最寄駅
       portfolio:
         name: 名前
         created_date: 作成月日
